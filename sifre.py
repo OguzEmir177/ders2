@@ -8,13 +8,17 @@ def generate_password(password_length):
 
 while True:
     try:
+        num_passwords = int(input("Kaç adet şifre oluşturmak istiyorsunuz: "))
+        if num_passwords <= 0:
+            print("Geçersiz sayı. Pozitif bir tamsayı girin.")
+            continue
         length = int(input("Lütfen şifre uzunluğunu girin: "))
         if length <= 0:
             print("Geçersiz uzunluk. Pozitif bir tamsayı girin.")
             continue
-        password = generate_password(length)
-        print("Oluşturulan şifre: ", password)
+        for _ in range(num_passwords):
+            password = generate_password(length)
+            print("Oluşturulan şifre: ", password)
         break
     except ValueError:
         print("Geçersiz giriş. Lütfen bir tamsayı girin.")
-
